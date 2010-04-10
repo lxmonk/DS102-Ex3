@@ -5,45 +5,37 @@ public class BinaryTree {
 	/*
 	 * create an empty tree
 	 */
-	public BinaryTree(){
-		//TODO
-	}
+	public BinaryTree() {
+        this.root = null;
+    }
 
 	/*
 	 * returns the tree height
 	 */
-	public int height(){
-		//TODO
-	}
+	public int height() {
+        return root.getHeight();
+    }
 
 	/*
 	 * returns true iff the tree is empty
 	 */
-	public boolean isEmpty(){
-		//TODO
-	}
+	public boolean isEmpty() {
+        return root == null;
+    }
 
 	/*
 	 * print the tree inorder
 	 */
 	public void printInOrder(){
-		//TODO
+		root.printInOrder();
 	}
 
 	/*
 	 * print the tree by levels
 	 */
 	public void printByLevels(){
-		//TODO
+		root.printByLevels();
 	}
-
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	//NOT REALLY IMPLEMENTED

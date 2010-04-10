@@ -159,8 +159,7 @@ public class BinaryNode {
 			}
 			else
 				left.insert(toAdd);
-		}
-		else {
+		} else {
 			if (right == null){
 				right = new BinaryNode(toAdd);
 				ans = right;

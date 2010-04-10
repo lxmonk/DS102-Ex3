@@ -11,13 +11,27 @@ public class BinarySearchNode extends BinaryNode {
 	}
 
 	protected BinaryNode insert(MyObject toAdd) {
-		// TODO
-	}
-
-	
+        BinarySearchNode nxt, ans = this;
+        while (nxt != null) {
+            ans = nxt;
+            if (nxt.getData().getKeyData().compareTo(toAdd.getKeyData()) < 0) {
+                // toAdd.getKeyData() is greater
+                nxt = nxt.getRight();
+            } else { // toAdd.getKeyData() is less than this.getData().getKeyData()
+                nxt = nxt.getLeft();
+            }
+        }
+        if (ans.getData().getKeyData().compareTo(toAdd.getKeyData()) < 0) {
+            ans.setRight(createNode(toAdd));
+            return ans.getRight();
+        } else {
+            ans.setLeft(createNode(toAdd));
+            return ans.getLeft();
+        }
+    }
 
 	protected BinaryNode remove(Comparable toRemove){
-		// TODO
+            // TODO
 	}
 	
 

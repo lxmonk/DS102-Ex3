@@ -8,60 +8,76 @@ public class BinaryNode {
 	private BinaryNode parent;
 	private MyObject data;
 	private int height;
-	private Comparable  max;
+    private Comparable max;
+
 
 	public BinaryNode(MyObject data) {
-		//TODO
-	}
+        this.data = data;
+        left = right = parent = null;
+        height = 1; //TODO: should this be zero??
+        max = data.getMaxData();
+    }
 
 	public BinaryNode(MyObject data, BinaryNode parent) {
-		//TODO
+		this.data = data;
+        this.parent = parent;
+        this.left = this.right = null;
+        this.height = 1; //TODO: should this be zero??
+        this.max = data.getMaxData();
 	}
 
 	protected int getHeight(){
-		//TODO
+		return this.height;
 	}
 
-	protected MyObject getData(){
-		//TODO
-	}
+	protected MyObject getData() {
+        return this.data;
+    }
 
-	protected Comparable getMax(){
-		//TODO
-	}
+	protected Comparable getMax() {
+        return this.max;
+    }
 	
-	protected int leftSubTreeHeight(){
-		//TODO
-	}
+	protected int leftSubTreeHeight() {
+        if (this.left == null) {
+            return 0;
+        } else {
+            return this.left.height;
+        }
+    }
 
 	protected int rightSubTreeHeight(){
-		//TODO
+		if (this.right == null) {
+            return 0;
+        } else {
+            return this.right.height;
+        }
 	}
 
-	protected void setData(MyObject o){
-		//TODO
-	}
+	protected void setData(MyObject o) {
+        this.data = o;
+    }
 
-	protected void setRight(BinaryNode node){
-		//TODO
-	}
+	protected void setRight(BinaryNode node) {
+        this.right = node;
+    }
 
-	protected void setLeft(BinaryNode node){
-		//TODO
-	}
+	protected void setLeft(BinaryNode node) {
+        this.left = node;
+    }
 	
-	protected void setParent(BinaryNode node){
-		//TODO;
-	}
+	protected void setParent(BinaryNode node) {
+        this.parent = node;
+    }
 
 
-	protected void setHeight(int h){
-		//TODO
-	}
+	protected void setHeight(int h) {
+        this.height = h;
+    }
 
-	protected void setMax(Comparable max){
-		//TODO	
-	}
+	protected void setMax(Comparable max) {
+        this.max = max;
+    }
 
 	
 
@@ -71,9 +87,10 @@ public class BinaryNode {
 	 * String rep for the object
 	 * @see java.lang.Object#toString()
 	 */
-	public String toString(){
-		return this.data.toString()+" max="+this.max.toString()+" height="+this.height;
-	}
+	@Override
+    public String toString() {
+        return this.data.toString() + " max=" + this.max.toString() + " height=" + this.height;
+    }
 
 	/*
 	 * returns left child
@@ -106,13 +123,13 @@ public class BinaryNode {
 		q.add(this);
 		while(!q.isEmpty()){
 			BinaryNode node = q.poll();
-			if(node!=null){
-				q.add(node.left);
-				q.add(node.right);
-				System.out.println(node);
-			}
-			else
-				System.out.println("EMPTY NODE");
+            if (node != null) {
+                q.add(node.left);
+                q.add(node.right);
+                System.out.println(node);
+            } else {
+                System.out.println("EMPTY NODE");
+            }
 		}
 	}
 

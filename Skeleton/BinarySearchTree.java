@@ -20,10 +20,10 @@ public class BinarySearchTree extends BinaryTree{
         root.remove(object);
     }
 	/*
-	 * Searches the search tree for a node that ovelaps (defined in the assignment description) with the interval [start, end]
+	 * Searches the search tree for a node that overlaps (defined in the assignment description) with the interval [start, end]
 	 * Returns the first overlaping node it encounters in the tree.
 	 */
 	public MyObject OverlapSearch(Comparable start, Comparable end) {
-        root.overlapSearch(start, end);
+        return root.overlapSearch(start, end);
     }
 }

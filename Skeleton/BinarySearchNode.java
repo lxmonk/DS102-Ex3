@@ -127,9 +127,33 @@ public class BinarySearchNode extends BinaryNode {
         }
     }
 
-    protected MyObject overlapSearch(Comparable start,Comparable end){
-		// TODO
-	}
+    protected MyObject overlapSearch(Comparable start,Comparable end) {
+        MyObject leftSubTreeOverlap, rightSubTreeOverlap;
+        leftSubTreeOverlap = rightSubTreeOverlap = null;
+        if (this.getLeft() != null && this.getLeft().getMax().compareTo(start) >= 0) {
+            leftSubTreeOverlap = this.getLeft().overlapSearch(start, end);
+            if (leftSubTreeOverlap != null) {
+                return leftSubTreeOverlap;
+            }
+        }
+        else if (this.getData().overlap(start, end)) {
+            return this.getData();
+        }
+        else if (this.getData().getKeyData().compareTo(end) <= 0 && this.getRight() != null) {
+            rightSubTreeOverlap = this.getRight().overlapSearch(start, end);
+            return rightSubTreeOverlap;
+        }
+        return null;
+    }
+
+    /*if(this.left!=null)
+             this.left.printInOrder();
+
+         System.out.println(this);
+
+         if(this.right!=null)
+             this.right.printInOrder();*/
+
 	
 
 	

@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -186,4 +187,37 @@ public class BinaryNode {
 		return this;
 	}
 
+    public void updateHeight() {
+        // added by us, to update the height of a BinaryNode (after insertion or deletion)
+
+        this.setHeight(Math.max(this.rightSubTreeHeight(), this.leftSubTreeHeight()) + 1);
+        BinaryNode tmp = this;
+        while (tmp != null) {
+            tmp.updateHeight();
+            tmp = tmp.parent;
+        }
+    }
+
+
+    public void updateMax() {
+        BinaryNode tmp = this;
+        while (tmp != null) {
+            Comparable newMax;
+            if (tmp.getLeftMax().compareTo(tmp.getRightMax()) < 0) {
+                newMax = tmp.getRightMax();
+            } else {
+                newMax = tmp.getLeftMax();
+            }
+            tmp.setMax(newMax);
+            tmp = tmp.parent;
+        }
+    }
+
+    public Comparable getRightMax() {
+        return this.getRight().getMax();
+    }
+
+    public Comparable getLeftMax() {
+        return this.getLeft().getMax();
+    }
 }

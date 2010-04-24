@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list readonly="true" id="a5416e44-3033-49f0-a6e5-10bceff30a5b" name="Default" comment="beggining to look at the code" />
     <list default="true" id="b8a52774-6291-4fb9-9e27-6c17f93d2380" name="Rejected commit: Default" comment="task 3 for BinarySearchNode amd BinarySearchTree first implementation">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinarySearchTree.java" afterPath="$PROJECT_DIR$/BinarySearchTree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AVLSearchNode.java" afterPath="$PROJECT_DIR$/AVLSearchNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinarySearchNode.java" afterPath="$PROJECT_DIR$/BinarySearchNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinaryNode.java" afterPath="$PROJECT_DIR$/BinaryNode.java" />
     </list>
-    <ignored path="Ex3.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path="Ex3.iws" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AVLSearchNode.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AVLSearchNode.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AVLSearchNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="14" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+            <state line="49" column="12" selection-start="1530" selection-end="1530" vertical-scroll-proportion="2.0970588">
               <folding />
             </state>
           </provider>
@@ -93,7 +95,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="4" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
+            <state line="42" column="99" selection-start="1170" selection-end="1186" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BinarySearchTree.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BinarySearchTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BinarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="15" selection-start="645" selection-end="645" vertical-scroll-proportion="0.7164634">
+            <state line="26" column="46" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,7 +131,7 @@
       <file leaf-file-name="BinarySearchNode.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BinarySearchNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="5" selection-start="5757" selection-end="5757" vertical-scroll-proportion="0.0">
+            <state line="21" column="36" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,7 +140,7 @@
       <file leaf-file-name="BinaryTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BinaryTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="21" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
+            <state line="1" column="13" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,7 +149,7 @@
       <file leaf-file-name="BinaryNode.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BinaryNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="38" selection-start="2787" selection-end="2787" vertical-scroll-proportion="0.0">
+            <state line="17" column="19" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -174,9 +176,10 @@
         <option value="$PROJECT_DIR$/Task.java" />
         <option value="$PROJECT_DIR$/BinaryTree.java" />
         <option value="$PROJECT_DIR$/Main.java" />
-        <option value="$PROJECT_DIR$/BinaryNode.java" />
-        <option value="$PROJECT_DIR$/BinarySearchNode.java" />
         <option value="$PROJECT_DIR$/BinarySearchTree.java" />
+        <option value="$PROJECT_DIR$/BinarySearchNode.java" />
+        <option value="$PROJECT_DIR$/AVLSearchNode.java" />
+        <option value="$PROJECT_DIR$/BinaryNode.java" />
       </list>
     </option>
   </component>
@@ -203,7 +206,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -215,12 +218,29 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
       <pane id="PackagesPane" />
-      <pane id="Favorites" />
       <pane id="Scope" />
+      <pane id="Favorites" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skeleton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skeleton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Skeleton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,7 +250,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="project.propSubversion" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../workspace/Euler" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -239,9 +259,9 @@
     <property name="GoToAction.allIncluded" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -343,27 +363,27 @@
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-3" width="1440" height="862" extended-state="0" />
+    <frame x="-4" y="-3" width="1448" height="869" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282967" sideWeight="0.0" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282967" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17659883" sideWeight="0.34203297" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997093" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994187" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Clojure REPL" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
@@ -416,14 +436,16 @@
         <state line="1" column="17" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AVLSearchNode.java">
+    <entry file="file://$PROJECT_DIR$/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" />
+        <state line="24" column="5" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.java">
+    <entry file="file://$PROJECT_DIR$/BinarySearchNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="4" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0" />
+        <state line="21" column="36" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AVLSearchTree.java">
@@ -431,37 +453,35 @@
         <state line="10" column="14" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BinaryTree.java">
+    <entry file="file://$PROJECT_DIR$/BinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="21" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="5" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="46" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BinaryNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="38" selection-start="2787" selection-end="2787" vertical-scroll-proportion="0.0">
+        <state line="17" column="19" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearchNode.java">
+    <entry file="file://$PROJECT_DIR$/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="5" selection-start="5757" selection-end="5757" vertical-scroll-proportion="0.0">
+        <state line="42" column="99" selection-start="1170" selection-end="1186" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearchTree.java">
+    <entry file="file://$PROJECT_DIR$/BinaryTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="15" selection-start="645" selection-end="645" vertical-scroll-proportion="0.7164634">
+        <state line="1" column="13" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AVLSearchNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="12" selection-start="1530" selection-end="1530" vertical-scroll-proportion="2.0970588">
           <folding />
         </state>
       </provider>

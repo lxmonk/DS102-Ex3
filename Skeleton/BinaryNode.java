@@ -15,7 +15,7 @@ public class BinaryNode {
 	public BinaryNode(MyObject data) {
         this.data = data;
         left = right = parent = null;
-        height = 1; //TODO: should this be zero??
+        height = 1;
         max = data.getMaxData();
     }
 
@@ -219,5 +219,32 @@ public class BinaryNode {
 
     public Comparable getLeftMax() {
         return this.getLeft().getMax();
+    }
+
+
+    public boolean isBalanced() {
+        BinaryNode left = this.getLeft(), right = this.getRight();
+        if (left == null) {
+            return right == null;
+        } else return right != null && left.getHeight() == right.getHeight();
+    }
+
+    public Object[] getHigherSon() {
+        Object[] ans = new Object[2];
+        BinaryNode left = this.getLeft(), right = this.getRight();
+        if (left == null) {
+            ans[0] = right;
+            ans[1] = "R";
+            return ans;
+        } else {
+            if (right == null || left.getHeight() > right.getHeight()) {
+                ans[0] = left;
+                ans[1] = "L";
+                return ans;
+            }
+            ans[0] = right;
+            ans[1] = "R";
+            return ans;
+        }
     }
 }

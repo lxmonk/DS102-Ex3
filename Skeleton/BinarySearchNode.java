@@ -10,7 +10,8 @@ public class BinarySearchNode extends BinaryNode {
 		super(data,parent);
 	}
 
-	protected BinaryNode insert(MyObject toAdd) {
+	/** insert toAdd keeping the tree's Binary-Search properties*/
+    protected BinaryNode insert(MyObject toAdd) {
         BinaryNode nxt = this, ans = null, toReturn = null;
         while (nxt != null) {
             ans = nxt;
@@ -146,15 +147,7 @@ public class BinarySearchNode extends BinaryNode {
         return null;
     }
 
-    /*if(this.left!=null)
-             this.left.printInOrder();
 
-         System.out.println(this);
-
-         if(this.right!=null)
-             this.right.printInOrder();*/
-
-	
 
 	
 	/*

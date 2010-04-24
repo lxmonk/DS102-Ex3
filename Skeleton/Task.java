@@ -19,7 +19,7 @@ public class Task implements MyObject{
         return this.end;
     }
 
-	@Override
+//	@Override
 	public int compareTo(Object o) {
         if (o instanceof Task) {
             Task o1 = (Task) o;

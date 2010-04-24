@@ -23,7 +23,7 @@ public class BinaryNode {
 		this.data = data;
         this.parent = parent;
         this.left = this.right = null;
-        this.height = 1; //TODO: should this be zero??
+        this.height = 1; 
         this.max = data.getMaxData();
 	}
 

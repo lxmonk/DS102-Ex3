@@ -3,13 +3,14 @@ public class AVLSearchTree extends BinarySearchTree {
 		super();
 	}
 
-	public void insert(MyObject toAdd){
-		//TODO
-	}
+	public void insert(MyObject toAdd) {
+        //TODO: isn't updating root necessary?
+        root.insert(toAdd);
+    }
 	
-	public void remove(Comparable toRemove){
-		//TODO
-	}
+	public void remove(Comparable toRemove) {
+        root.remove(toRemove);
+    }
 	
 	
 

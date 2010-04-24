@@ -7,7 +7,7 @@ public class AVLSearchNode extends BinarySearchNode {
         super(data, parent);
     }
 
-	
+
 
 
 	protected BinaryNode insert(MyObject toAdd) {
@@ -24,7 +24,7 @@ public class AVLSearchNode extends BinarySearchNode {
             Object[] C_raw = B.getHigherSon();
             BinaryNode C = (BinaryNode) C_raw[0];
             BinaryNode D = A.getParent();
-            String chooseAlgorithm = B_raw[1] + C_raw[1];
+            String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
             if (chooseAlgorithm == "RR") {
                 RR(A, B, D);
             } else if (chooseAlgorithm == "LL") {
@@ -34,39 +34,108 @@ public class AVLSearchNode extends BinarySearchNode {
             } else { // if (chooseAlgorithm == "LR")
                 LR(A, B, C, D);
             }
-
-
-	}
+        }
+        return tmp;
+    }
 
     private void LR(BinaryNode A, BinaryNode B, BinaryNode C, BinaryNode D) {
+        A.setLeft(C.getRight());
+        if (C.getRight() != null) {
+            C.getRight().setParent(A);
+        }
+        B.setRight(C.getLeft());
+        if (C.getLeft() != null) {
+            C.getLeft().setParent(B);
+        }
+        C.setLeft(B);
+        B.setParent(C);
+        C.setRight(A);
+        A.setParent(C);
+        if (D == null) { //TODO: How to make C the new root?
+        } else {
+            if (D.getRight() != null &&
+                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                D.setRight(C);
+            } else {
+                D.setLeft(C);
+            }
+            C.setParent(D);
+        }
     }
 
     private void RL(BinaryNode A, BinaryNode B, BinaryNode C, BinaryNode D) {
-        A.setLeft(C.getRight());
-        B.setRight(C.getLeft());
-        C.setLeft(B);
-        C.setRight(A);
-        if (D == null) {
-            
+        B.setLeft(C.getRight());
+        if (C.getRight() != null) {
+            C.getRight().setParent(B);
         }
+        A.setRight(C.getLeft());
+        if (C.getLeft() != null) {
+            C.getLeft().setParent(A);
+        }
+        C.setRight(B);
+        B.setParent(C);
+        C.setLeft(A);
+        A.setParent(C);
+        if (D == null) { //TODO: How to make C the new root?
+        } else {
+            if (D.getRight() != null &&
+                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                D.setRight(C);
+            } else {
+                D.setLeft(C);
+            }
+            C.setParent(D);
         }
 
     }
+
+
 
     private void LL(BinaryNode A, BinaryNode B, BinaryNode D) {
+        A.setLeft(B.getRight());
+        if (B.getRight() != null) {
+            B.getRight().setParent(A);
+        }
+        B.setRight(A);
+        A.setParent(B);
+        if (D == null) { //TODO: How to make B the new root?
+        } else {
+            if (D.getRight() != null &&
+                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                D.setRight(B);
+            } else {
+                D.setLeft(B);
+            }
+            B.setParent(D);
+        }
     }
 
-    private void RR(BinaryNode A, BinaryNode B, BinaryNode d) {
-        
+    private void RR(BinaryNode A, BinaryNode B, BinaryNode D) {
+        A.setRight(B.getLeft());
+        if (B.getLeft() != null) {
+            B.getLeft().setParent(A);
+        }
+        B.setLeft(A);
+        A.setParent(B);
+        if (D == null) { //TODO: How to make B the new root?
+        } else {
+            if (D.getRight() != null &&
+                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                D.setRight(B);
+            } else {
+                D.setLeft(B);
+            }
+            B.setParent(D);
+        }
     }
 
     protected AVLSearchNode createNode(MyObject data){
 		return new AVLSearchNode(data);
 	}
-	
-	
-	
-	
+
+
+
+
 	protected AVLSearchNode getParent(){
 		return (AVLSearchNode)super.getParent();
 	}
@@ -78,5 +147,6 @@ public class AVLSearchNode extends BinarySearchNode {
 	protected AVLSearchNode getRight(){
 		return (AVLSearchNode)super.getRight();
 	}
+
 
 }

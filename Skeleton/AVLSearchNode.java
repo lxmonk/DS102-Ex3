@@ -65,6 +65,9 @@ public class AVLSearchNode extends BinarySearchNode {
         A.updateHeight();
         B.updateHeight();
         C.recUpdateHeight();
+        A.updateMax();
+        B.updateMax();
+        C.recUpdateMax();
     }
 
     private void RL(BinaryNode A, BinaryNode B, BinaryNode C, BinaryNode D) {
@@ -95,7 +98,7 @@ public class AVLSearchNode extends BinarySearchNode {
         A.updateMax();
         B.recUpdateMax();
         B.updateMax();
-        A.recUpdateMax();
+        C.recUpdateMax();
     }
 
 
@@ -118,6 +121,7 @@ public class AVLSearchNode extends BinarySearchNode {
         B.setParent(D);
         A.updateHeight();
         B.recUpdateHeight();
+        B.updateMax(); // probably unnecessary
         A.recUpdateMax();
     }
 
@@ -139,6 +143,7 @@ public class AVLSearchNode extends BinarySearchNode {
         B.setParent(D);
         A.updateHeight();
         B.recUpdateHeight();
+        B.updateMax(); // probably unnecessary
         A.recUpdateMax();
     }
 

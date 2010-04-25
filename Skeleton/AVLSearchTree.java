@@ -4,15 +4,18 @@ public class AVLSearchTree extends BinarySearchTree {
 	}
 
 	public void insert(MyObject toAdd) {
-        //TODO: isn't updating root necessary?
-        root.insert(toAdd);
+        if (root == null)
+            root = new AVLSearchNode(toAdd);
+        else
+            root = ((AVLSearchNode) root).insert(toAdd).getRoot();
     }
 	
 	public void remove(Comparable toRemove) {
-        root.remove(toRemove);
+        if (root != null) {
+            BinaryNode tmp = ((AVLSearchNode) root).remove(toRemove);
+            if (tmp != null) {
+                root = tmp.getRoot();
+            }
+        }
     }
-	
-	
-
-	
 }

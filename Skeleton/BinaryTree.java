@@ -13,6 +13,9 @@ public class BinaryTree {
 	 * returns the tree height
 	 */
 	public int height() {
+        if (root == null) {
+            return 0;
+        }
         return root.getHeight();
     }
 
@@ -26,16 +29,22 @@ public class BinaryTree {
 	/*
 	 * print the tree inorder
 	 */
-	public void printInOrder(){
-		root.printInOrder();
-	}
+	public void printInOrder() {
+        if (root == null) {
+            return;
+        }
+        root.printInOrder();
+    }
 
 	/*
 	 * print the tree by levels
 	 */
-	public void printByLevels(){
-		root.printByLevels();
-	}
+	public void printByLevels() {
+        if (root == null) {
+            return;
+        }
+        root.printByLevels();
+    }
 	
 	
 	//NOT REALLY IMPLEMENTED

@@ -23,7 +23,7 @@ public class Task implements MyObject{
 	public int compareTo(Object o) {
         if (o instanceof Task) {
             Task o1 = (Task) o;
-            return o1.getKeyData().compareTo(this.getKeyData());
+            return this.getKeyData().compareTo(o1.getKeyData());
         } else {
             throw new ClassCastException(o + " is not of class Task");
         }

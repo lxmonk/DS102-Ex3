@@ -25,13 +25,15 @@ public class AVLSearchNode extends BinarySearchNode {
             BinaryNode C = (BinaryNode) C_raw[0];
             BinaryNode D = A.getParent();
             String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
-            if (chooseAlgorithm == "RR") {
+//            System.out.println("(chooseAlgorithm.equalsIgnoreCase(\"RR\")) = "
+//                    + (chooseAlgorithm.equalsIgnoreCase("RR")));
+            if (chooseAlgorithm.equalsIgnoreCase("RR")) {
                 RR(A, B, D);
-            } else if (chooseAlgorithm == "LL") {
+            } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
                 LL(A, B, D);
-            } else if (chooseAlgorithm == "RL") {
+            } else if (chooseAlgorithm.equalsIgnoreCase("RL")) {
                 RL(A, B, C, D);
-            } else { // if (chooseAlgorithm == "LR")
+            } else if (chooseAlgorithm.equalsIgnoreCase("LR")) {
                 LR(A, B, C, D);
             }
         }
@@ -51,16 +53,18 @@ public class AVLSearchNode extends BinarySearchNode {
         B.setParent(C);
         C.setRight(A);
         A.setParent(C);
-        if (D == null) { //TODO: How to make C the new root?
-        } else {
+        if (D != null) {
             if (D.getRight() != null &&
                     D.getRight().getData().compareTo(A.getData()) == 0) {
                 D.setRight(C);
             } else {
                 D.setLeft(C);
             }
-            C.setParent(D);
         }
+        C.setParent(D);
+        A.updateHeight();
+        B.updateHeight();
+        C.recUpdateHeight();
     }
 
     private void RL(BinaryNode A, BinaryNode B, BinaryNode C, BinaryNode D) {
@@ -76,17 +80,22 @@ public class AVLSearchNode extends BinarySearchNode {
         B.setParent(C);
         C.setLeft(A);
         A.setParent(C);
-        if (D == null) { //TODO: How to make C the new root?
-        } else {
+        if (D != null) {
             if (D.getRight() != null &&
                     D.getRight().getData().compareTo(A.getData()) == 0) {
                 D.setRight(C);
             } else {
                 D.setLeft(C);
             }
-            C.setParent(D);
         }
-
+        C.setParent(D);
+        A.updateHeight();
+        B.updateHeight();
+        C.recUpdateHeight();
+        A.updateMax();
+        B.recUpdateMax();
+        B.updateMax();
+        A.recUpdateMax();
     }
 
 
@@ -98,16 +107,18 @@ public class AVLSearchNode extends BinarySearchNode {
         }
         B.setRight(A);
         A.setParent(B);
-        if (D == null) { //TODO: How to make B the new root?
-        } else {
+        if (D != null) {
             if (D.getRight() != null &&
                     D.getRight().getData().compareTo(A.getData()) == 0) {
                 D.setRight(B);
             } else {
                 D.setLeft(B);
             }
-            B.setParent(D);
         }
+        B.setParent(D);
+        A.updateHeight();
+        B.recUpdateHeight();
+        A.recUpdateMax();
     }
 
     private void RR(BinaryNode A, BinaryNode B, BinaryNode D) {
@@ -117,16 +128,18 @@ public class AVLSearchNode extends BinarySearchNode {
         }
         B.setLeft(A);
         A.setParent(B);
-        if (D == null) { //TODO: How to make B the new root?
-        } else {
+        if (D != null) {
             if (D.getRight() != null &&
                     D.getRight().getData().compareTo(A.getData()) == 0) {
                 D.setRight(B);
             } else {
                 D.setLeft(B);
             }
-            B.setParent(D);
         }
+        B.setParent(D);
+        A.updateHeight();
+        B.recUpdateHeight();
+        A.recUpdateMax();
     }
 
     protected AVLSearchNode createNode(MyObject data){

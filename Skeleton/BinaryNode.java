@@ -43,7 +43,7 @@ public class BinaryNode {
         if (this.left == null) {
             return 0;
         } else {
-            return this.left.height;
+            return this.left.getHeight();
         }
     }
 
@@ -51,7 +51,7 @@ public class BinaryNode {
 		if (this.right == null) {
             return 0;
         } else {
-            return this.right.height;
+            return this.right.getHeight();
         }
 	}
 
@@ -189,44 +189,45 @@ public class BinaryNode {
 
     public void updateHeight() {
         // added by us, to update the height of a BinaryNode (after insertion or deletion)
-
         this.setHeight(Math.max(this.rightSubTreeHeight(), this.leftSubTreeHeight()) + 1);
+    }
+
+
+    public void recUpdateMax() { //TODO: make it stop when unnecessary to continue
         BinaryNode tmp = this;
         while (tmp != null) {
-            tmp.updateHeight();
+            tmp.updateMax();
             tmp = tmp.parent;
         }
     }
-
 
     public void updateMax() {
-        BinaryNode tmp = this;
-        while (tmp != null) {
-            Comparable newMax;
-            if (tmp.getLeftMax().compareTo(tmp.getRightMax()) < 0) {
-                newMax = tmp.getRightMax();
-            } else {
-                newMax = tmp.getLeftMax();
-            }
-            tmp.setMax(newMax);
-            tmp = tmp.parent;
-        }
+        this.setMax(Math.max(
+                Math.max(((Integer) this.getRightMax()).intValue(),
+                        ((Integer) this.getLeftMax()).intValue()),
+                ((Integer) this.getData().getMaxData()).intValue()));
     }
-
     public Comparable getRightMax() {
+        if (this.getRight() == null) return (-1);
         return this.getRight().getMax();
     }
 
     public Comparable getLeftMax() {
+        if (this.getLeft() == null) return (-1);
         return this.getLeft().getMax();
     }
 
 
     public boolean isBalanced() {
         BinaryNode left = this.getLeft(), right = this.getRight();
+        int rHeight = 0;
         if (left == null) {
-            return right == null;
-        } else return right != null && left.getHeight() == right.getHeight();
+            return right == null || right.getHeight() == 1;
+        }
+        if (right != null) {
+            rHeight = right.getHeight();
+        }
+        return (Math.abs(rHeight - left.getHeight()) < 2);
     }
 
     public Object[] getHigherSon() {
@@ -245,6 +246,22 @@ public class BinaryNode {
             ans[0] = right;
             ans[1] = "R";
             return ans;
+        }
+    }
+
+    public BinaryNode getRoot() {
+        BinaryNode root = this;
+        while (root.getParent() != null) {
+            root = root.getParent();
+        }
+        return root;
+    }
+
+    public void recUpdateHeight() { //TODO: make it stop when no change has been done
+        BinaryNode tmp = this;
+        while (tmp != null) {
+            tmp.updateHeight();
+            tmp = tmp.getParent();
         }
     }
 }

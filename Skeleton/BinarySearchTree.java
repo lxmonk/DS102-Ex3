@@ -10,7 +10,9 @@ public class BinarySearchTree extends BinaryTree{
 	 * inserts toAdd to its proper place in the search tree
 	 */
 	public void insert(MyObject toAdd) {
-        root.insert(toAdd);
+        if (root == null)
+            root = new BinaryNode(toAdd);
+        else root.insert(toAdd);
     }
 
 	/*

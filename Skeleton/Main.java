@@ -18,7 +18,9 @@ public class Main
 		{
 
 			File outFile = new File("Results-" + fileName);
+//            System.out.println("outFile = " + outFile);
 			PrintStream ofw = new PrintStream(outFile);
+//            System.out.println("ofw = " + ofw);
 
 			System.setOut(ofw);
 
@@ -75,19 +77,19 @@ public class Main
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
-		//
-		//your tests here...
-		//for example:
-		//readFromFile("example.txt")
-		//
-		//IMPORTANT!!!!! - Remember to remove your code from here before submitting the assignment!!!!
-		
+	public static void main(String[] args) {
+        //
+        //your tests here...
+        //for example:
+        //readFromFile("example.txt")
+        //
+        //IMPORTANT!!!!! - Remember to remove your code from here before submitting the assignment!!!!
 
-		//These are our tests - DON'T TOUCH!!!
-		//You may comment these out while working on the assignment, but be sure to uncomment before submitting!!!
-		for(int i = 1 ; i <= 10 ; i++)
-			readFromFile("test" + i + ".txt");
-	}
+
+        //These are our tests - DON'T TOUCH!!!
+        //You may comment these out while working on the assignment, but be sure to uncomment before submitting!!!
+        readFromFile("Assignment 3 - example.txt");
+//		for(int i = 1 ; i <= 10 ; i++)
+//			readFromFile("test" + i + ".txt");
+    }
 }

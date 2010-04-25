@@ -29,50 +29,52 @@ public class BinarySearchNode extends BinaryNode {
             ans.setRight(newNode);
             toReturn = ans.getRight();
         } else {
-            ans.setLeft(createNode(toAdd));
+            ans.setLeft(newNode);
             toReturn = ans.getLeft();
         }
         // updating height and max in the parent nodes
-        Comparable mx = newNode.getMax();
+        ans.recUpdateHeight(); // update height recursively upto the root
+        ans.recUpdateMax();
+        /* Comparable mx = newNode.getMax();
         while (ans != null) {
             if (ans.getMax().compareTo(mx) < 0) {ans.setMax(mx);} //update max
-            ans.updateHeight(); // update height
             ans = ans.getParent();
-        }
+        }*/
         return toReturn;
     }
 
     protected BinaryNode remove(Comparable toRemove) {
         // find the node whose key is toRemove
         BinaryNode tmp = this/*, last = null*/;
-        Comparable key = tmp.getData().getKeyData();
+        Comparable key = tmp.getData();//.getKeyData();
         while (key.compareTo(toRemove) != 0 /* && tmp != null */) {
             /*last = tmp;*/
-            if (key.compareTo(toRemove) < 0)
+            if (key.compareTo(toRemove) < 0) {
                 tmp = tmp.getRight();
-            else
+            } else {
                 tmp = tmp.getLeft();
+            }
             if (tmp != null) // the search continues!
-                key = tmp.getData().getKeyData();
+                key = tmp.getData();//.getKeyData();
             else
                 return null; // toRemove is not part of the tree, RETURN NULL
         }
         // remove the node containing toRemove
         if (tmp.getParent() == null) // tmp is the root of the tree
-            return null;
+            return null; //TODO: take care of this case!!!
         BinaryNode parent = tmp.getParent();
         boolean isRight; // is tmp a right-child?
-        isRight = (parent.getData().getKeyData().compareTo(key) < 0);
+        isRight = (parent.getData().compareTo(key) < 0);
         if (tmp.getHeight() == 1) { // tmp has no children
             if (isRight) {
                 parent.setRight(null);
-                parent.updateHeight();
-                parent.updateMax();
+                parent.recUpdateHeight();
+                parent.recUpdateMax();
             }
             else {
                 parent.setLeft(null);
-                parent.updateHeight();
-                parent.updateMax();
+                parent.recUpdateHeight();
+                parent.recUpdateMax();
             }
             return parent;
         }
@@ -80,38 +82,38 @@ public class BinarySearchNode extends BinaryNode {
             if (isRight) {
                 parent.setRight(tmp.getLeft());
                 tmp.getLeft().setParent(parent);
-                parent.updateHeight();
-                parent.updateMax();
+                parent.recUpdateHeight();
+                parent.recUpdateMax();
             }
             else {
                 parent.setLeft(tmp.getLeft());
                 tmp.getLeft().setParent(parent);
-                parent.updateHeight();
-                parent.updateMax();
+                parent.recUpdateHeight();
+                parent.recUpdateMax();
             }
         }
         else if (tmp.getLeft() == null) { // tmp has one child - a right one
             if (isRight) {
                 parent.setRight(tmp.getRight());
                 tmp.getRight().setParent(parent);
-                parent.updateHeight();
-                parent.updateMax();
+                parent.recUpdateHeight();
+                parent.recUpdateMax();
             }
             else {
                 parent.setLeft(tmp.getRight());
                 tmp.getRight().setParent(parent);
-                parent.updateHeight();
-                parent.updateMax();
+                parent.recUpdateHeight();
+                parent.recUpdateMax();
             }
         }
         else { /*tmp has two children!*/
             BinaryNode suc = this.getSuccessor();
             // IMPORTANT: the successor has no left child.
-            BinaryNode suc2 = suc;
-            suc.remove(suc.getData().getKeyData()); // remove suc
-            tmp.setData(suc2.getData());
-            parent.updateHeight();
-            parent.updateMax();
+            MyObject Data = suc.getData();
+            suc.remove(suc.getData()); // remove suc
+            tmp.setData(Data);
+            parent.recUpdateHeight();
+            parent.recUpdateMax();
         }
         return parent;
     }

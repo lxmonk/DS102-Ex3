@@ -45,7 +45,7 @@ public class BinarySearchNode extends BinaryNode {
 
     protected BinaryNode remove(Comparable toRemove) {
         // find the node whose key is toRemove
-        BinaryNode tmp = this/*, last = null*/;
+        BinarySearchNode tmp = this/*, last = null*/;
         Comparable key = tmp.getData();//.getKeyData();
         while (key.compareTo(toRemove) != 0 /* && tmp != null */) {
             /*last = tmp;*/
@@ -107,13 +107,16 @@ public class BinarySearchNode extends BinaryNode {
             }
         }
         else { /*tmp has two children!*/
-            BinaryNode suc = this.getSuccessor();
+            BinaryNode suc = tmp.getSuccessor();
             // IMPORTANT: the successor has no left child.
             MyObject Data = suc.getData();
+            suc.setMax(-1);
+            suc.recUpdateMax();
             suc.remove(suc.getData()); // remove suc
             tmp.setData(Data);
-            parent.recUpdateHeight();
-            parent.recUpdateMax();
+            this.setMax(this.getData().getMaxData());
+            this.recUpdateHeight();
+            this.recUpdateMax();
         }
         return parent;
     }
@@ -133,19 +136,21 @@ public class BinarySearchNode extends BinaryNode {
     protected MyObject overlapSearch(Comparable start,Comparable end) {
         MyObject leftSubTreeOverlap, rightSubTreeOverlap;
         leftSubTreeOverlap = rightSubTreeOverlap = null;
+        if (this.getData().overlap(start, end)) {
+            return this.getData();
+        }
+        else if ((((Integer) this.getData().getKeyData()).compareTo((Integer) end) <= 0)
+                && (this.getRight() != null)) {
+            rightSubTreeOverlap = this.getRight().overlapSearch(start, end);
+            return rightSubTreeOverlap;
+        }
         if (this.getLeft() != null && this.getLeft().getMax().compareTo(start) >= 0) {
             leftSubTreeOverlap = this.getLeft().overlapSearch(start, end);
             if (leftSubTreeOverlap != null) {
                 return leftSubTreeOverlap;
             }
         }
-        else if (this.getData().overlap(start, end)) {
-            return this.getData();
-        }
-        else if (this.getData().getKeyData().compareTo(end) <= 0 && this.getRight() != null) {
-            rightSubTreeOverlap = this.getRight().overlapSearch(start, end);
-            return rightSubTreeOverlap;
-        }
+
         return null;
     }
 

@@ -41,7 +41,11 @@ public class Main
 				}
 				if (act.equals("delete"))
 				{
+                    /*ours*/System.out.println(line + ":");
 					String begin = st.nextToken();
+                    if (Integer.valueOf(begin).compareTo(106) == 0) {
+                        int dump = 777;
+                    }
 					tree.remove(new Task(Integer.valueOf(begin), Integer.valueOf(begin) + 1, "DONTCARE"));
 
 				}
@@ -50,15 +54,18 @@ public class Main
 					String begin = st.nextToken();
 					String end = st.nextToken();
 					MyObject answer = tree.OverlapSearch(Integer.valueOf(begin), Integer.valueOf(end));
-					System.out.println(answer == null ? "No Overlap!" : answer.toString());
+                    /*ours*/System.out.println(line + ":");
+                    System.out.println(answer == null ? "No Overlap!" : answer.toString());
 				}
 				if (act.equals("inOrder"))
 				{
+                    /*ours*/System.out.println(line + ":");
 					tree.printInOrder();
 					System.out.println();
 				}
 				if (act.equals("byLevels"))
 				{
+                    /*ours*/System.out.println(line + ":");
 					tree.printByLevels();
 					System.out.println();
 				}

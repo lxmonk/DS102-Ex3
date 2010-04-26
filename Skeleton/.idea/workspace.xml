@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list readonly="true" id="a5416e44-3033-49f0-a6e5-10bceff30a5b" name="Default" comment="beggining to look at the code" />
-    <list default="true" id="b8a52774-6291-4fb9-9e27-6c17f93d2380" name="Rejected commit: Default" comment="all implemented - apart from updating root problem in AVLSearchNode.java">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinarySearchNode.java" afterPath="$PROJECT_DIR$/BinarySearchNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b8a52774-6291-4fb9-9e27-6c17f93d2380" name="Rejected commit: Default" comment="all implemented - apart from updating root problem in AVLSearchNode.java" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="Ex3.iws" />
     <option name="TRACKING_ENABLED" value="true" />

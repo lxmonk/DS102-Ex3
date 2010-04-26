@@ -219,7 +219,7 @@ public class BinaryNode {
     }
 
 
-    public boolean isBalanced() {
+    protected boolean isBalanced() {
         BinaryNode left = this.getLeft(), right = this.getRight();
         int rHeight = 0;
         if (left == null) {

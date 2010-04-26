@@ -123,7 +123,7 @@ public class BinarySearchNode extends BinaryNode {
             suc.updateMaxWithoutMe();
             suc.getParent().recUpdateMax();
             suc.remove(suc.getData()); // remove suc
-            tmp.insert(Data);
+            tmp.setData(Data);
             tmp.setMax(tmp.getData().getMaxData());
             tmp.recUpdateHeight();
             tmp.recUpdateMax();

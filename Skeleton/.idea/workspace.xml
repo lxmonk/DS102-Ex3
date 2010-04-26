@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list readonly="true" id="a5416e44-3033-49f0-a6e5-10bceff30a5b" name="Default" comment="beggining to look at the code" />
     <list default="true" id="b8a52774-6291-4fb9-9e27-6c17f93d2380" name="Rejected commit: Default" comment="all implemented - apart from updating root problem in AVLSearchNode.java">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AVLSearchNode.java" afterPath="$PROJECT_DIR$/AVLSearchNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinarySearchNode.java" afterPath="$PROJECT_DIR$/BinarySearchNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BinaryNode.java" afterPath="$PROJECT_DIR$/BinaryNode.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="Ex3.iws" />
@@ -159,6 +157,19 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/BinarySearchNode.java" line="125" class="BinarySearchNode" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -218,10 +229,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BinarySearchNode.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BinarySearchNode.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BinarySearchNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="29" selection-start="4754" selection-end="4754" vertical-scroll-proportion="-16.73077">
+            <state line="125" column="30" selection-start="4755" selection-end="4755" vertical-scroll-proportion="0.23877068">
               <folding />
             </state>
           </provider>
@@ -230,7 +241,7 @@
       <file leaf-file-name="AVLSearchTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AVLSearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="56" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0">
+            <state line="14" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -248,7 +259,7 @@
       <file leaf-file-name="AVLSearchNode.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AVLSearchNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="0" selection-start="5775" selection-end="5775" vertical-scroll-proportion="0.0">
+            <state line="19" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -272,10 +283,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="60" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.07635468">
+            <state line="45" column="60" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -322,9 +333,9 @@
         <option value="$PROJECT_DIR$/BinarySearchTree.java" />
         <option value="$PROJECT_DIR$/AVLSearchTree.java" />
         <option value="$PROJECT_DIR$/BinaryNode.java" />
-        <option value="$PROJECT_DIR$/BinarySearchNode.java" />
         <option value="$PROJECT_DIR$/AVLSearchNode.java" />
         <option value="$PROJECT_DIR$/Main.java" />
+        <option value="$PROJECT_DIR$/BinarySearchNode.java" />
       </list>
     </option>
   </component>
@@ -691,11 +702,6 @@
         <state line="9" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearchTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="20" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="22" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
@@ -710,20 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AVLSearchTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="56" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearchNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="29" selection-start="4754" selection-end="4754" vertical-scroll-proportion="-16.73077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BinaryNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="25" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0">
@@ -731,16 +723,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AVLSearchNode.java">
+    <entry file="file://$PROJECT_DIR$/AVLSearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="0" selection-start="5775" selection-end="5775" vertical-scroll-proportion="0.0">
+        <state line="14" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="60" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.07635468">
+        <state line="45" column="60" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BinarySearchTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="20" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AVLSearchNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BinarySearchNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="30" selection-start="4755" selection-end="4755" vertical-scroll-proportion="0.23877068">
           <folding />
         </state>
       </provider>

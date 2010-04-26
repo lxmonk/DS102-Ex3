@@ -12,12 +12,18 @@ public class BinarySearchNode extends BinaryNode {
 
 	/** insert toAdd keeping the tree's Binary-Search properties*/
     protected BinaryNode insert(MyObject toAdd) {
-        BinaryNode nxt = this, ans = null, toReturn = null;
-        while (nxt != null) {
+        BinaryNode nxt = this, ans = null, toReturn;
+        boolean Same = false;
+        while (nxt != null && !Same) {
+            int comp = ((Integer) nxt.getData().getKeyData()).compareTo(
+                    ((Integer) toAdd.getKeyData()));
             ans = nxt;
-            if (nxt.getData().getKeyData().compareTo(toAdd.getKeyData()) < 0) {
+            if (comp < 0) {
                 // toAdd.getKeyData() is greater
                 nxt = nxt.getRight();
+            } else if (comp == 0) {
+                ans = nxt.getParent();
+                Same = true;
             } else { // toAdd.getKeyData() is less than this.getData().getKeyData()
                 nxt = nxt.getLeft();
             }
@@ -25,7 +31,8 @@ public class BinarySearchNode extends BinaryNode {
         BinaryNode newNode = createNode(toAdd);
         newNode.setParent(ans);
         // connecting newNode to ans as the appropriate child
-        if (ans.getData().getKeyData().compareTo(toAdd.getKeyData()) < 0) {
+        if (((Integer) ans.getData().getKeyData()).compareTo(
+                ((Integer) toAdd.getKeyData())) < 0) {
             ans.setRight(newNode);
             toReturn = ans.getRight();
         } else {
@@ -47,9 +54,9 @@ public class BinarySearchNode extends BinaryNode {
         // find the node whose key is toRemove
         BinarySearchNode tmp = this/*, last = null*/;
         Comparable key = tmp.getData();//.getKeyData();
-        while (key.compareTo(toRemove) != 0 /* && tmp != null */) {
+        while (((Task) key).compareTo(toRemove) != 0 /* && tmp != null */) {
             /*last = tmp;*/
-            if (key.compareTo(toRemove) < 0) {
+            if (((Task)key).compareTo(toRemove) < 0) {
                 tmp = tmp.getRight();
             } else {
                 tmp = tmp.getLeft();
@@ -60,11 +67,12 @@ public class BinarySearchNode extends BinaryNode {
                 return null; // toRemove is not part of the tree, RETURN NULL
         }
         // remove the node containing toRemove
-        if (tmp.getParent() == null) // tmp is the root of the tree
-            return null; //TODO: take care of this case!!!
+//        if (tmp.getParent() == null) // tmp is the root of the tree
+//            return null; //TODO: take care of this case!!! (remove the root)
+        boolean isntRoot = !(tmp.getParent() == null);
         BinaryNode parent = tmp.getParent();
         boolean isRight; // is tmp a right-child?
-        isRight = (parent.getData().compareTo(key) < 0);
+        isRight = (isntRoot && ((Task)parent.getData()).compareTo(key) < 0);
         if (tmp.getHeight() == 1) { // tmp has no children
             if (isRight) {
                 parent.setRight(null);
@@ -76,7 +84,7 @@ public class BinarySearchNode extends BinaryNode {
                 parent.recUpdateHeight();
                 parent.recUpdateMax();
             }
-            return parent;
+//            return parent;
         }
         else if (tmp.getRight() == null) { // tmp has one child - a left one
             if (isRight) {
@@ -111,12 +119,14 @@ public class BinarySearchNode extends BinaryNode {
             // IMPORTANT: the successor has no left child.
             MyObject Data = suc.getData();
             suc.setMax(-1);
-            suc.recUpdateMax();
+            tmp.setMax(-1);
+            suc.updateMaxWithoutMe();
+            suc.getParent().recUpdateMax();
             suc.remove(suc.getData()); // remove suc
-            tmp.setData(Data);
-            this.setMax(this.getData().getMaxData());
-            this.recUpdateHeight();
-            this.recUpdateMax();
+            tmp.insert(Data);
+            tmp.setMax(tmp.getData().getMaxData());
+            tmp.recUpdateHeight();
+            tmp.recUpdateMax();
         }
         return parent;
     }
@@ -135,7 +145,6 @@ public class BinarySearchNode extends BinaryNode {
 
     protected MyObject overlapSearch(Comparable start,Comparable end) {
         MyObject leftSubTreeOverlap, rightSubTreeOverlap;
-        leftSubTreeOverlap = rightSubTreeOverlap = null;
         if (this.getData().overlap(start, end)) {
             return this.getData();
         }
@@ -144,13 +153,13 @@ public class BinarySearchNode extends BinaryNode {
             rightSubTreeOverlap = this.getRight().overlapSearch(start, end);
             return rightSubTreeOverlap;
         }
-        if (this.getLeft() != null && this.getLeft().getMax().compareTo(start) >= 0) {
+        if (this.getLeft() != null && 
+                ((Integer) this.getLeft().getMax()).compareTo((Integer) start) >= 0) {
             leftSubTreeOverlap = this.getLeft().overlapSearch(start, end);
             if (leftSubTreeOverlap != null) {
                 return leftSubTreeOverlap;
             }
         }
-
         return null;
     }
 

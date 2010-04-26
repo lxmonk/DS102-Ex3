@@ -202,10 +202,11 @@ public class BinaryNode {
     }
 
     public void updateMax() {
-        this.setMax(Math.max(
-                Math.max(((Integer) this.getRightMax()).intValue(),
-                        ((Integer) this.getLeftMax()).intValue()),
-                ((Integer) this.getData().getMaxData()).intValue()));
+        int lmax = (Integer) this.getLeftMax();
+        int thsmax = (Integer) this.getData().getMaxData();
+        int rmax = (Integer) this.getRightMax();
+
+        this.setMax(Math.max(Math.max(rmax, lmax), thsmax));
     }
     public Comparable getRightMax() {
         if (this.getRight() == null) return (-1);
@@ -230,21 +231,21 @@ public class BinaryNode {
         return (Math.abs(rHeight - left.getHeight()) < 2);
     }
 
-    public Object[] getHigherSon() {
+    public Object[] getHigherSon() {//default changed from right to left
         Object[] ans = new Object[2];
         BinaryNode left = this.getLeft(), right = this.getRight();
-        if (left == null) {
-            ans[0] = right;
-            ans[1] = "R";
+        if (right == null) {
+            ans[0] = left;
+            ans[1] = "L";
             return ans;
         } else {
-            if (right == null || left.getHeight() > right.getHeight()) {
-                ans[0] = left;
-                ans[1] = "L";
+            if (left == null || left.getHeight() < right.getHeight()) {
+                ans[0] = right;
+                ans[1] = "R";
                 return ans;
             }
-            ans[0] = right;
-            ans[1] = "R";
+            ans[0] = left;
+            ans[1] = "L";
             return ans;
         }
     }
@@ -263,5 +264,13 @@ public class BinaryNode {
             tmp.updateHeight();
             tmp = tmp.getParent();
         }
+    }
+
+    public void updateMaxWithoutMe() {
+        int lmax = (Integer) this.getLeftMax();
+        int thsmax = -1;
+        int rmax = (Integer) this.getRightMax();
+
+        this.setMax(Math.max(Math.max(rmax, lmax), thsmax));
     }
 }

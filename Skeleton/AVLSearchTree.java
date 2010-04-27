@@ -13,9 +13,9 @@ public class AVLSearchTree extends BinarySearchTree {
 	public void remove(Comparable toRemove) {
         if (root != null) {
             BinaryNode son = root;
-            if (root.getData().compareTo(toRemove) == 0) {
+            if (((Task)root.getData()).compareTo(toRemove) == 0) {
                 if (root.getHeight() == 1) {
-                    // deleting the last node of the tree
+                    // deleting the last node of the tree:
                     root = null;
                     return;
                 } else {
@@ -28,7 +28,6 @@ public class AVLSearchTree extends BinarySearchTree {
             } else {
                 root = son.getRoot();
             }
-
         }
     }
 }

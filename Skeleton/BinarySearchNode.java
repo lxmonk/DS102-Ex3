@@ -18,8 +18,7 @@ public class BinarySearchNode extends BinaryNode {
             int comp = ((Integer) nxt.getData().getKeyData()).compareTo(
                     ((Integer) toAdd.getKeyData()));
             ans = nxt;
-            if (comp < 0) {
-                // toAdd.getKeyData() is greater
+            if (comp < 0) { // toAdd.getKeyData() is greater
                 nxt = nxt.getRight();
             } else { // toAdd.getKeyData() is less than this.getData().getKeyData()
                 nxt = nxt.getLeft();
@@ -39,11 +38,6 @@ public class BinarySearchNode extends BinaryNode {
         // updating height and max in the parent nodes
         ans.recUpdateHeight(); // update height recursively upto the root
         ans.recUpdateMax();
-        /* Comparable mx = newNode.getMax();
-        while (ans != null) {
-            if (ans.getMax().compareTo(mx) < 0) {ans.setMax(mx);} //update max
-            ans = ans.getParent();
-        }*/
         return toReturn;
     }
 
@@ -58,14 +52,11 @@ public class BinarySearchNode extends BinaryNode {
                 tmp = tmp.getLeft();
             }
             if (tmp != null) // the search continues!
-                key = tmp.getData();//.getKeyData();
+                key = tmp.getData();
             else
                 return null; // toRemove is not part of the tree, RETURN NULL
         }
-        // remove the node containing toRemove
-//        if (tmp.getParent() == null) // tmp is the root of the tree
-//            return null; //TODO: take care of this case!!! (remove the root)
-        boolean isntRoot = !(tmp.getParent() == null);
+        boolean isntRoot = !(tmp.getParent() == null); // if true - we are NOT removing the root
         BinaryNode parent = tmp.getParent();
         boolean isRight; // is tmp a right-child?
         isRight = (isntRoot && ((Task)parent.getData()).compareTo(key) < 0);
@@ -74,12 +65,12 @@ public class BinarySearchNode extends BinaryNode {
                 parent.setRight(null);
                 parent.recUpdateHeight();
                 parent.recUpdateMax();
-            } else {
+            }
+            else {
                 parent.setLeft(null);
                 parent.recUpdateHeight();
                 parent.recUpdateMax();
             }
-//            return parent;
         }
         else if (tmp.getRight() == null) { // tmp has one child - a left one
             if (!isntRoot) { // tmp is the root
@@ -92,7 +83,8 @@ public class BinarySearchNode extends BinaryNode {
                 tmp.getLeft().setParent(parent);
                 parent.recUpdateHeight();
                 parent.recUpdateMax();
-            } else {
+            }
+            else {
                 if (!isntRoot) { // tmp is the root
                     tmp.getLeft().setParent(null);
                     tmp.setLeft(null);
@@ -127,7 +119,8 @@ public class BinarySearchNode extends BinaryNode {
                 parent.recUpdateHeight();
                 parent.recUpdateMax();
             }
-        } else { /*tmp has two children!*/
+        }
+        else { /*tmp has two children!*/
             BinaryNode suc = tmp.getSuccessor();
             // IMPORTANT: the successor has no left child.
             MyObject Data = suc.getData();
@@ -145,9 +138,10 @@ public class BinarySearchNode extends BinaryNode {
     }
 
     private BinaryNode getSuccessor() {
-        if (this.getRight() == null) { //probably unnecessary
+        if (this.getRight() == null) {
             return this.getParent();
-        } else {
+        }
+        else {
             BinaryNode ans = this.getRight();
             while (ans.getLeft() != null) {
                 ans = ans.getLeft();

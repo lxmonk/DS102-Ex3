@@ -26,8 +26,6 @@ public class AVLSearchNode extends BinarySearchNode {
                 BinaryNode C = (BinaryNode) C_raw[0];
                 BinaryNode D = A.getParent();
                 String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
-//            System.out.println("(chooseAlgorithm.equalsIgnoreCase(\"RR\")) = "
-//                    + (chooseAlgorithm.equalsIgnoreCase("RR")));
                 if (chooseAlgorithm.equalsIgnoreCase("RR")) {
                     RR(A, B, D);
                 } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
@@ -44,7 +42,6 @@ public class AVLSearchNode extends BinarySearchNode {
     }
 
     protected BinaryNode remove(Comparable toRemove) {
-        //todo: are we allowed to add this method?
         BinaryNode tmp = super.remove(toRemove);
         BinaryNode A = tmp;
         while (A != null) {
@@ -60,8 +57,6 @@ public class AVLSearchNode extends BinarySearchNode {
                 BinaryNode C = (BinaryNode) C_raw[0];
                 BinaryNode D = A.getParent();
                 String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
-//            System.out.println("(chooseAlgorithm.equalsIgnoreCase(\"RR\")) = "
-//                    + (chooseAlgorithm.equalsIgnoreCase("RR")));
                 if (chooseAlgorithm.equalsIgnoreCase("RR")) {
                     RR(A, B, D);
                 } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
@@ -71,7 +66,6 @@ public class AVLSearchNode extends BinarySearchNode {
                 } else if (chooseAlgorithm.equalsIgnoreCase("LR")) {
                     LR(A, B, C, D);
                 }
-//            ((AVLSearchNode)A).balance();
             }
             A = A.getParent();
         }
@@ -93,7 +87,7 @@ public class AVLSearchNode extends BinarySearchNode {
         A.setParent(C);
         if (D != null) {
             if (D.getRight() != null &&
-                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                    ((Task)D.getRight().getData()).compareTo(A.getData()) == 0) {
                 D.setRight(C);
             } else {
                 D.setLeft(C);
@@ -106,8 +100,6 @@ public class AVLSearchNode extends BinarySearchNode {
         A.updateMax();
         B.updateMax();
         C.recUpdateMax();
-//        C.balance();
-
     }
 
     private void RL(BinaryNode A, BinaryNode B, BinaryNode C, BinaryNode D) {
@@ -125,7 +117,7 @@ public class AVLSearchNode extends BinarySearchNode {
         A.setParent(C);
         if (D != null) {
             if (D.getRight() != null &&
-                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                    ((Task)D.getRight().getData()).compareTo(A.getData()) == 0) {
                 D.setRight(C);
             } else {
                 D.setLeft(C);
@@ -152,7 +144,7 @@ public class AVLSearchNode extends BinarySearchNode {
         A.setParent(B);
         if (D != null) {
             if (D.getRight() != null &&
-                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                    ((Task)D.getRight().getData()).compareTo(A.getData()) == 0) {
                 D.setRight(B);
             } else {
                 D.setLeft(B);
@@ -174,7 +166,7 @@ public class AVLSearchNode extends BinarySearchNode {
         A.setParent(B);
         if (D != null) {
             if (D.getRight() != null &&
-                    D.getRight().getData().compareTo(A.getData()) == 0) {
+                    ((Task)D.getRight().getData()).compareTo(A.getData()) == 0) {
                 D.setRight(B);
             } else {
                 D.setLeft(B);
@@ -195,8 +187,6 @@ public class AVLSearchNode extends BinarySearchNode {
         BinaryNode C = (BinaryNode) C_raw[0];
         BinaryNode D = A.getParent();
         String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
-//            System.out.println("(chooseAlgorithm.equalsIgnoreCase(\"RR\")) = "
-//                    + (chooseAlgorithm.equalsIgnoreCase("RR")));
         if (chooseAlgorithm.equalsIgnoreCase("RR")) {
             RR(A, B, D);
         } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
@@ -225,15 +215,4 @@ public class AVLSearchNode extends BinarySearchNode {
 		return (AVLSearchNode)super.getRight();
 	}
 
-    protected void doBalance() {
-        BinaryNode A = this;
-        while (A != null && A.isBalanced()) { // find the 1st unbalanced
-            // node - or the root (then A == null)
-            A = A.getParent();
-        }
-        if (A == null)
-            return; // the tree is balanced upto its root
-        else
-            ((AVLSearchNode)A).balance();
-    }
-}
+} // class AVLSearchNode

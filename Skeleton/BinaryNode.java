@@ -187,13 +187,14 @@ public class BinaryNode {
 		return this;
 	}
 
+
+    // added by us, to update the height of a BinaryNode (after insertion or deletion)
     public void updateHeight() {
-        // added by us, to update the height of a BinaryNode (after insertion or deletion)
         this.setHeight(Math.max(this.rightSubTreeHeight(), this.leftSubTreeHeight()) + 1);
     }
 
 
-    public void recUpdateMax() { //TODO: make it stop when unnecessary to continue
+    public void recUpdateMax() {
         BinaryNode tmp = this;
         while (tmp != null) {
             tmp.updateMax();
@@ -231,7 +232,7 @@ public class BinaryNode {
         return (Math.abs(rHeight - left.getHeight()) < 2);
     }
 
-    public Object[] getHigherSon() {//default changed from right to left
+    public Object[] getHigherSon() {
         Object[] ans = new Object[2];
         BinaryNode left = this.getLeft(), right = this.getRight();
         if (right == null) {
@@ -258,7 +259,7 @@ public class BinaryNode {
         return root;
     }
 
-    public void recUpdateHeight() { //TODO: make it stop when no change has been done
+    public void recUpdateHeight() {
         BinaryNode tmp = this;
         while (tmp != null) {
             tmp.updateHeight();

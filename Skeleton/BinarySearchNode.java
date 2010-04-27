@@ -109,6 +109,7 @@ public class BinarySearchNode extends BinaryNode {
                 if (!isntRoot) {
                     tmp.getRight().setParent(null);
                     tmp.setRight(null);
+                    return null;
                 }
                 parent.setRight(tmp.getRight());
                 tmp.getRight().setParent(parent);
@@ -119,14 +120,14 @@ public class BinarySearchNode extends BinaryNode {
                 if (!isntRoot) {
                     tmp.getRight().setParent(null);
                     tmp.setRight(null);
+                    return null;
                 }
                 parent.setLeft(tmp.getRight());
                 tmp.getRight().setParent(parent);
                 parent.recUpdateHeight();
                 parent.recUpdateMax();
             }
-        }
-        else { /*tmp has two children!*/
+        } else { /*tmp has two children!*/
             BinaryNode suc = tmp.getSuccessor();
             // IMPORTANT: the successor has no left child.
             MyObject Data = suc.getData();
@@ -144,7 +145,7 @@ public class BinarySearchNode extends BinaryNode {
     }
 
     private BinaryNode getSuccessor() {
-        if (this.getRight() == null) {
+        if (this.getRight() == null) { //probably unnecessary
             return this.getParent();
         } else {
             BinaryNode ans = this.getRight();
@@ -160,17 +161,14 @@ public class BinarySearchNode extends BinaryNode {
         if (this.getData().overlap(start, end)) {
             return this.getData();
         }
-        else if ((((Integer) this.getData().getKeyData()).compareTo((Integer) end) <= 0)
+        if (this.getLeft() != null &&
+                ((Integer) this.getLeft().getMax()).compareTo((Integer) start) >= 0) {
+            leftSubTreeOverlap = this.getLeft().overlapSearch(start, end);
+            return leftSubTreeOverlap;
+        } else if ((((Integer) this.getData().getKeyData()).compareTo((Integer) end) <= 0)
                 && (this.getRight() != null)) {
             rightSubTreeOverlap = this.getRight().overlapSearch(start, end);
             return rightSubTreeOverlap;
-        }
-        if (this.getLeft() != null && 
-                ((Integer) this.getLeft().getMax()).compareTo((Integer) start) >= 0) {
-            leftSubTreeOverlap = this.getLeft().overlapSearch(start, end);
-            if (leftSubTreeOverlap != null) {
-                return leftSubTreeOverlap;
-            }
         }
         return null;
     }
@@ -208,10 +206,4 @@ public class BinarySearchNode extends BinaryNode {
 	protected BinarySearchNode getRight(){
 		return (BinarySearchNode)super.getRight();
 	}
-
-
-	
-
-
-
 }

@@ -43,7 +43,7 @@ public class Main
 				{
                     /*ours*/System.out.println(line + ":");
 					String begin = st.nextToken();
-                    if (Integer.valueOf(begin).compareTo(106) == 0) {
+                    if (Integer.valueOf(begin).compareTo(128) == 0) {
                         int dump = 777;
                     }
 					tree.remove(new Task(Integer.valueOf(begin), Integer.valueOf(begin) + 1, "DONTCARE"));

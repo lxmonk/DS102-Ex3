@@ -19,7 +19,9 @@ public class BinarySearchTree extends BinaryTree{
 	 * removes the object from the search tree
 	 */
 	public void remove(Comparable object) {
-        root.remove(object);
+        if (root != null) {
+            root.remove(object);
+        }
     }
 	/*
 	 * Searches the search tree for a node that overlaps (defined in the assignment description) with the interval [start, end]

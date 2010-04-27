@@ -13,29 +13,32 @@ public class AVLSearchNode extends BinarySearchNode {
 	protected BinaryNode insert(MyObject toAdd) {
 		BinaryNode tmp = super.insert(toAdd);
         BinaryNode A = tmp;
-        while (A != null && A.isBalanced()) { // find the 1st unbalanced
-            // node - or the root (then A == null)
-            A = A.getParent();
-        }
-        if (A == null) return tmp; // the tree is balanced upto its root
-        else {
-            Object[] B_raw = A.getHigherSon();
-            BinaryNode B = (BinaryNode) B_raw[0];
-            Object[] C_raw = B.getHigherSon();
-            BinaryNode C = (BinaryNode) C_raw[0];
-            BinaryNode D = A.getParent();
-            String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
+        while (A != null){
+            while (A != null && A.isBalanced()) { // find the 1st unbalanced
+                // node - or the root (then A == null)
+                A = A.getParent();
+            }
+            if (A == null) return tmp; // the tree is balanced upto its root
+            else {
+                Object[] B_raw = A.getHigherSon();
+                BinaryNode B = (BinaryNode) B_raw[0];
+                Object[] C_raw = B.getHigherSon();
+                BinaryNode C = (BinaryNode) C_raw[0];
+                BinaryNode D = A.getParent();
+                String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
 //            System.out.println("(chooseAlgorithm.equalsIgnoreCase(\"RR\")) = "
 //                    + (chooseAlgorithm.equalsIgnoreCase("RR")));
-            if (chooseAlgorithm.equalsIgnoreCase("RR")) {
-                RR(A, B, D);
-            } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
-                LL(A, B, D);
-            } else if (chooseAlgorithm.equalsIgnoreCase("RL")) {
-                RL(A, B, C, D);
-            } else if (chooseAlgorithm.equalsIgnoreCase("LR")) {
-                LR(A, B, C, D);
+                if (chooseAlgorithm.equalsIgnoreCase("RR")) {
+                    RR(A, B, D);
+                } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
+                    LL(A, B, D);
+                } else if (chooseAlgorithm.equalsIgnoreCase("RL")) {
+                    RL(A, B, C, D);
+                } else if (chooseAlgorithm.equalsIgnoreCase("LR")) {
+                    LR(A, B, C, D);
+                }
             }
+            A = A.getParent();
         }
         return tmp;
     }
@@ -44,30 +47,33 @@ public class AVLSearchNode extends BinarySearchNode {
         //todo: are we allowed to add this method?
         BinaryNode tmp = super.remove(toRemove);
         BinaryNode A = tmp;
-        while (A != null && A.isBalanced()) { // find the 1st unbalanced
-            // node - or the root (then A == null)
-            A = A.getParent();
-        }
-        if (A == null) {return tmp; // the tree is balanced upto its root
-        } else {
-            Object[] B_raw = A.getHigherSon();
-            BinaryNode B = (BinaryNode) B_raw[0];
-            Object[] C_raw = B.getHigherSon();
-            BinaryNode C = (BinaryNode) C_raw[0];
-            BinaryNode D = A.getParent();
-            String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
+        while (A != null) {
+            while (A != null && A.isBalanced()) { // find the 1st unbalanced
+                // node - or the root (then A == null)
+                A = A.getParent();
+            }
+            if (A == null) {return tmp; // the tree is balanced upto its root
+            } else {
+                Object[] B_raw = A.getHigherSon();
+                BinaryNode B = (BinaryNode) B_raw[0];
+                Object[] C_raw = B.getHigherSon();
+                BinaryNode C = (BinaryNode) C_raw[0];
+                BinaryNode D = A.getParent();
+                String chooseAlgorithm = (String) B_raw[1] + (String) C_raw[1];
 //            System.out.println("(chooseAlgorithm.equalsIgnoreCase(\"RR\")) = "
 //                    + (chooseAlgorithm.equalsIgnoreCase("RR")));
-            if (chooseAlgorithm.equalsIgnoreCase("RR")) {
-                RR(A, B, D);
-            } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
-                LL(A, B, D);
-            } else if (chooseAlgorithm.equalsIgnoreCase("RL")) {
-                RL(A, B, C, D);
-            } else if (chooseAlgorithm.equalsIgnoreCase("LR")) {
-                LR(A, B, C, D);
-            }
+                if (chooseAlgorithm.equalsIgnoreCase("RR")) {
+                    RR(A, B, D);
+                } else if (chooseAlgorithm.equalsIgnoreCase("LL")) {
+                    LL(A, B, D);
+                } else if (chooseAlgorithm.equalsIgnoreCase("RL")) {
+                    RL(A, B, C, D);
+                } else if (chooseAlgorithm.equalsIgnoreCase("LR")) {
+                    LR(A, B, C, D);
+                }
 //            ((AVLSearchNode)A).balance();
+            }
+            A = A.getParent();
         }
         return tmp;
     }
